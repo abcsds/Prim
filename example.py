@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-An example for Primm's Algorithm
+An example for Prim's Algorithm
 """
 __author__ = """Alberto Barradas (http://github.com/abcsds/)"""
 
@@ -13,8 +13,7 @@ try:
 except:
     raise
 
-import primm.primm as primm
-
+from prim import *
 
 G=nx.Graph()
 
@@ -36,18 +35,22 @@ G.add_edge('G','H',weight=3)
 G.add_edge('G','I',weight=1)
 G.add_edge('H','I',weight=3)
 
+mst = prim(G,'A')
 
-#select nodes
-elarge=[(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] >5]
-esmall=[(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] <=5]
+
+#select nodes for MST
+mst=[(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] >5]
+others=[(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] <=5]
+
+print mst
 
 pos=nx.spring_layout(G) # positions for all nodes
 # nodes
 nx.draw_networkx_nodes(G, pos, node_size=500)
 
 # edges
-nx.draw_networkx_edges(G, pos, edgelist=elarge, width=6)
-nx.draw_networkx_edges(G, pos, edgelist=esmall, width=6, alpha=0.5, edge_color='b', style='dashed')
+nx.draw_networkx_edges(G, pos, edgelist=mst, width=6)
+nx.draw_networkx_edges(G, pos, edgelist=others, width=6, alpha=0.5, edge_color='b', style='dashed')
 
 # labels
 nx.draw_networkx_labels(G,pos,font_size=20,font_family='sans-serif')
