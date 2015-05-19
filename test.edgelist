@@ -1,0 +1,15 @@
+A B {'weight':3}
+A D {'weight':5}
+A E {'weight':9}
+B C {'weight':5}
+B D {'weight':4}
+B E {'weight':8}
+C D {'weight':7}
+C G {'weight':3}
+D F {'weight':8}
+D G {'weight':5}
+D H {'weight':6}
+E F {'weight':2}
+F H {'weight':10}
+G I {'weight':1}
+H I {'weight':3}

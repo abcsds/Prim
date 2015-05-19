@@ -25,7 +25,6 @@ def prim(G,start):
                     pq.additem((current,node), w)
 
         closedSet.add(current)
-        print pq
 
         tup, wght = pq.popitem()
         while(tup[1] in closedSet):
