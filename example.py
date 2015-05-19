@@ -34,6 +34,7 @@ G.add_edge('G','I',weight=1)
 G.add_edge('H','I',weight=3)
 
 mst = prim(G,'A')
+othr = [n for n in G.edges() if n not in mst]
 
 print "Minimal Spanning Tree: ", mst
 
@@ -44,10 +45,11 @@ nx.draw_networkx_nodes(G, pos, node_size=500)
 
 # edges
 nx.draw_networkx_edges(G, pos, edgelist=mst, width=6)
+nx.draw_networkx_edges(G, pos, edgelist=othr, width=6, alpha=0.5, edge_color='b', style='dashed')
 
 # labels
 nx.draw_networkx_labels(G,pos,font_size=20,font_family='sans-serif')
 
 plt.axis('off')
-plt.savefig("weighted_graph.png") # save as png
+# plt.savefig("weighted_graph.png") # save as png
 plt.show() # display
