@@ -4,23 +4,34 @@ try:
 except:
     raise
 
-try:
-    import Queue as Q  # ver. < 3.0
-except ImportError:
-    import queue as Q
+from pqdict import PQDict
 
 def prim(G,start):
     """Function recives a graph and a starting node, and returns a MST"""
     stopN = G.number_of_nodes() - 1
-    openSet = start
+    current = start
     closedSet = set()
-    priorityQueue = Q.PriorityQueue() # priorityQueue.put(10) priorityQueue.get()
+    pq = PQDict()
     mst = []
 
     while len(mst) < stopN:
-        closedSet.add(openSet)
+        # print " "
+        # print "Current node :", current
+        for node in G.neighbors(current):
+            if node not in closedSet and current not in closedSet:
+                # print "    neigbors: ", node
+                if (current,node) not in pq and (node,current) not in pq:
+                    w = G.edge[current][node]['weight']
+                    pq.additem((current,node), w)
 
+        closedSet.add(current)
+        print pq
 
+        tup, wght = pq.popitem()
+        while(tup[1] in closedSet):
+            tup, wght = pq.popitem()
+        mst.append(tup)
+        current = tup[1]
 
-
-    pass
+    return mst
+    # pass
