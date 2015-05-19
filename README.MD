@@ -1,0 +1,4 @@
+Requirements:
+matplotlib
+networkx
+networkx_viewer
