@@ -1,0 +1,15 @@
+Paris Luxemburg {'weight':3}
+Paris Madrid {'weight':5}
+Paris Amsterdam {'weight':9}
+Luxemburg London {'weight':5}
+Luxemburg Madrid {'weight':4}
+Luxemburg Amsterdam {'weight':8}
+London Madrid {'weight':7}
+London Egypt {'weight':3}
+Madrid Helsinki {'weight':8}
+Madrid Egypt {'weight':5}
+Madrid New_York {'weight':6}
+Amsterdam Helsinki {'weight':2}
+Helsinki New_York {'weight':10}
+Egypt Mexico_City {'weight':1}
+New_York Mexico_City {'weight':3}

@@ -15,9 +15,11 @@ except:
 
 from prim import *
 
-G=nx.read_edgelist("test.edgelist")
+# G=nx.read_edgelist("test.edgelist")
+G=nx.read_edgelist("flights.edgelist")
 
-mst = prim(G,'A')
+# mst = prim(G,'A')
+mst = prim(G,'Madrid')
 
 print "Minimal Spanning Tree: ", mst
 
